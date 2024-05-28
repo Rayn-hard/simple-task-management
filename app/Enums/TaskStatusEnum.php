@@ -16,4 +16,13 @@ enum TaskStatusEnum: string
         }
         return $values;
     }
+
+    public static function list(): array
+    {
+        return [
+            'pending',
+            'in_progress',
+            'completed',
+        ];
+    }
 }
