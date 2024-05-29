@@ -18,6 +18,10 @@ class Task extends Model
         'status'
     ];
 
+    protected $casts = [
+        'due_date' => 'date',
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class)->withTrashed();

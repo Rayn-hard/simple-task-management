@@ -13,14 +13,14 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = Task::paginate(5);
-        return view('tasks.index', compact('tasks'));
+        return view('dashboard', compact('tasks'));
     }
 
     public function create(UpsertTaskRequest $request) 
     {
         Task::create($request->validated()->all());
 
-        return redirect()->route('tasks.index');
+        return redirect()->route('dashboard');
     }
 
     public function update(UpsertTaskRequest $request, $id)
@@ -29,7 +29,7 @@ class TaskController extends Controller
 
         $task->update($request->validated()->all());
 
-        return redirect()->route('tasks.index');
+        return redirect()->route('dashboard');
     }
 
     public function delete($id)
@@ -38,6 +38,6 @@ class TaskController extends Controller
 
         $task->delete();
 
-        return redirect()->route('tasks.index');
+        return redirect()->route('dashboard');
     }
 }
